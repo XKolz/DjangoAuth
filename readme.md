@@ -104,3 +104,63 @@ to install the dependencies needed for this app
 A common practice is to list all your project dependencies 
 in a requirements.txt file. You can create this file by running:
         pip freeze > requirements.txt
+
+
+
+Now to host your django project
+Install Gunicorn:
+
+Gunicorn is a Python WSGI HTTP Server for UNIX. It will serve your Django application.
+pip install gunicorn
+
+A Procfile is a text file in the root directory of your application that tells Render how to run your application.
+
+web: gunicorn myproject.wsgi
+
+
+4. Create a runtime.txt:
+
+Specify the Python version you want to use by creating a runtime.txt file in the root directory of your project.
+
+
+5.Configure settings.py:
+
+Update your settings.py to support Render's environment:
+
+Allow all hosts:
+ALLOWED_HOSTS = ['*']
+
+Configure static files:
+import os
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+Use dj-database-url to parse the database URL from environment variables:
+pip install dj-database-url
+
+import dj_database_url
+
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
+
+
+
+Set DEBUG to False for production:
+DEBUG = False
+
+
+Install whitenoise:
+
+Whitenoise helps with serving static files.
+
+pip install whitenoise
+
+
+Update MIDDLEWARE in settings.py:
+MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # ... other middleware
+]
+
+Update STATICFILES_STORAGE:
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
