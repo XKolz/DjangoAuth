@@ -23,5 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('myapp.urls')),
     path('', home, name='home'),
-    # path('', redirect_to_api, name='redirect_to_api'),
+    path('', redirect_to_api, name='redirect_to_api'),
 ]
