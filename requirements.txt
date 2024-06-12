@@ -29,6 +29,7 @@ typing_extensions==4.12.2
 urllib3==1.26.12
 virtualenv==20.26.2
 wheel==0.43.0
+djangorestframework
 gunicorn
 dj-database-url
 psycopg2-binary
