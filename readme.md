@@ -80,6 +80,7 @@ We defined URL patterns to route requests to the appropriate views:
 
 
 curl -X POST http://127.0.0.1:8000/api/register/ -H "Content-Type: application/json" -d '{"username": "testuser", "email": "test@example.com", "password": "password123"}'
+
         {
             "username": 
             "testuser", 
@@ -89,6 +90,7 @@ curl -X POST http://127.0.0.1:8000/api/register/ -H "Content-Type: application/j
 
 
 curl -X POST http://127.0.0.1:8000/api/login/ -H "Content-Type: application/json" -d '{"username": "testuser", "password": "password123"}'
+
         {
             "username": "testuser", 
             "password": "password123"
