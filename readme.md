@@ -9,12 +9,12 @@
 
 2. Add rest_framework & '<app_name>' & 'rest_framework.authtoken'  to INSTALLED_APPS:
 
-    INSTALLED_APPS = [
-        ...others
-        'rest_framework',
-        'myapp',
-        'rest_framework.authtoken',
-    ]
+        INSTALLED_APPS = [
+            ...others
+            'rest_framework',
+            'myapp',
+            'rest_framework.authtoken',
+        ]
 
 3. Database Configuration
 We configured the project to use PostgreSQL instead of the default SQLite:
